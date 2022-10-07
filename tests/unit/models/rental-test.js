@@ -18,8 +18,9 @@ module('Unit | Model | rental', function (hooks) {
       },
       category: 'Estate',
       bedrooms: 15,
-      image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
-      description: 
+      image:
+        'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
+      description:
         'This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests.',
     });
 
@@ -36,8 +37,5 @@ module('Unit | Model | rental', function (hooks) {
 
     rental.category = 'Estate';
     assert.strictEqual(rental.type, 'Standalone');
-
-
-
   });
 });
