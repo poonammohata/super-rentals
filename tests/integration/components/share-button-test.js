@@ -26,21 +26,20 @@ module('Integration | Component | share-button', function (hooks) {
     let link = find('a');
     let url = new URL(link.href);
     return url.searchParams.get(param);
-  }
+  };
 
   test('basic usage', async function (assert) {
     await render(hbs`<ShareButton>Tweet this!</ShareButton>`);
-    assert.dom('a')
-    .hasAttribute('target', '_blank')
-    .hasAttribute('rel', 'external nofollow noopener noreferrer')
-    .hasAttribute(
-      'href',
-      /^https:\/\/twitter\.com\/intent\/tweet/)
-    .hasClass('share')
-    .hasClass('button')
-    .containsText('Tweet this!');
+    assert
+      .dom('a')
+      .hasAttribute('target', '_blank')
+      .hasAttribute('rel', 'external nofollow noopener noreferrer')
+      .hasAttribute('href', /^https:\/\/twitter\.com\/intent\/tweet/)
+      .hasClass('share')
+      .hasClass('button')
+      .containsText('Tweet this!');
 
-  assert.strictEqual(this.tweetParam('url'), MOCK_URL.href);
+    assert.strictEqual(this.tweetParam('url'), MOCK_URL.href);
   });
 
   test('it supports passing @text', async function (assert) {
@@ -81,5 +80,5 @@ module('Integration | Component | share-button', function (hooks) {
       .hasAttribute('target', '_blank')
       .hasAttribute('rel', 'external nofollow noopener noreferrer')
       .hasAttribute('href', /^https:\/\/twitter\.com\/intent\/tweet/);
-  })
+  });
 });
